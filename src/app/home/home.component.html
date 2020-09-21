@@ -1,0 +1,22 @@
+
+<h4 style="text-align: center;">AVAILABLE PRODUCTS</h4>
+<table class="table table-dark" style="margin-bottom: 200px;position:absolute" id="mytab">
+  <thead style="text-align: center;">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Image</th>
+      <th scope="col">Quantity</th>
+    </tr>
+  </thead>
+
+  <tbody style="text-align: center" *ngFor="let product of productlist">
+    <tr id="{{product.id}]">
+      <th scope="row">{{product.name}}</th>
+      <td>{{product.price}}</td>
+      <td><img src="{{product.path}}" width="200" height="150"></td>
+      <td>{{product.quantity}}<button style="color:firebrick">+</button></td>
+      <td><button style="color:firebrick" (click)="tocart(product.id)">Add To Cart</button></td>
+    </tr>
+  </tbody>
+</table>

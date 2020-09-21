@@ -1,0 +1,30 @@
+[
+    {
+        "id":1,
+        "name":"Laptop",
+        "price":50000,
+        "path":"../../assets/images/laptop.webp",
+        "quantity":0
+    },
+    {
+        "id":2,
+        "name":"SmartPhone",
+        "price":15000,
+        "path":"../../assets/images/phone.jpg",
+        "quantity":0
+    },
+    {
+        "id":3,
+        "name":"Headphone",
+        "price":5000,
+        "path":"../../assets/images/headphone.jpg",
+        "quantity":0
+    },
+    {
+        "id":4,
+        "name":"LED TV",
+        "price":75000,
+        "path":"../../assets/images/tv.jpeg",
+        "quantity":0
+    }
+]
