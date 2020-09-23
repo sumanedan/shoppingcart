@@ -1,4 +1,3 @@
-
 <h4 style="text-align: center;">AVAILABLE PRODUCTS</h4>
 <table class="table table-dark" style="margin-bottom: 200px;position:absolute" id="mytab">
   <thead style="text-align: center;">
@@ -15,8 +14,8 @@
       <th scope="row">{{product.name}}</th>
       <td>{{product.price}}</td>
       <td><img src="{{product.path}}" width="200" height="150"></td>
-      <td>{{product.quantity}}<button style="color:firebrick">+</button></td>
-      <td><button style="color:firebrick" (click)="tocart(product.id)">Add To Cart</button></td>
+      <td>{{product.quantity}}<button style="color:firebrick" (click)="incQ(product)">+</button></td>
+      <td><button style="color:firebrick" (click)="tocart(product)">Add To Cart</button></td>
     </tr>
   </tbody>
-</table>
+</table> 

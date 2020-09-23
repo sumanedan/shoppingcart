@@ -10,7 +10,4 @@ list=[]
     return this.http.get("http://localhost:4200/assets/products.json")
   }
 
-valcart(){
-return this.list
-}
 }

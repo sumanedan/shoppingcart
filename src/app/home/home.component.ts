@@ -1,7 +1,10 @@
+
+
 import { FormStyle } from '@angular/common';
 import { ValueTransformer } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import {ProdlistService} from '../prodlist.service'
+import { CartlistService } from '../cartlist.service';
+import { ProdlistService } from '../prodlist.service'
 
 @Component({
   selector: 'app-home',
@@ -9,25 +12,26 @@ import {ProdlistService} from '../prodlist.service'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-productlist:any;
-s:any;
- public cartlist:string[]=[]
+  productlist: any;
+  s: any;
+  public cart: string[] = []
 
-  constructor(private service:ProdlistService) {}
-  tocart(k){
-    let s:any=document.getElementById("mytab")
-    //console.log(s.rows[k])
-    this.cartlist.push(s.rows[k])
+  constructor(private service: ProdlistService, private obj: CartlistService) { }
+  tocart(p) {
+    this.cart.push(p)
     this.cartj()
-    }
+  }
   ngOnInit(): void {
-    this.service.getlist().subscribe(list=>{
-      this.productlist=list
+    this.service.getlist().subscribe(list => {
+      this.productlist = list
     })
   }
-cartj(){
-console.log("Entries to my Cart...")
-  console.log(this.cartlist)
-
+  cartj() {
+    console.log("Entries to my Cart...")
+    this.obj.cartlist = this.cart
+    console.log(this.obj.cartlist)
+  }
+  incQ(p) {
+    p.quantity += 1
   }
 }

@@ -1,0 +1,68 @@
+<form [formGroup]="registerForm" class="form-group" (ngSubmit)="register()">
+    <div class="form-group">
+        <label>Name</label>
+    </div>
+    <div>
+        <input type="text" class="form-control" formControlName="name">
+        <div *ngIf="submitted && f.name.errors" class="alert alert-danger" role="alert">
+            <div *ngIf="f.name.errors.required">
+                Name is required
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+    </div>
+    <div>
+        <input type="text" class="form-control" formControlName="email">
+        <div *ngIf="submitted && f.email.errors" class="alert alert-danger" role="alert">
+            <div *ngIf="f.email.errors.required">
+                Email is required
+            </div>
+            <div *ngIf="f.email.errors.pattern">
+                Invalid Email format
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+    </div>
+    <div>
+        <input type="text" class="form-control" formControlName="password">
+        <div *ngIf="submitted && f.password.errors" class="alert alert-danger" role="alert">
+            <div *ngIf="f.password.errors.required">
+                Password is required
+            </div>
+            <div *ngIf="f.password.errors.minlength">
+                Password should have Minimum of 5 characters
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Date of Birth</label>
+    </div>
+    <div>
+        <input type="text" class="form-control" formControlName="dob">
+        <div *ngIf="submitted && f.dob.errors" class="alert alert-danger" role="alert">
+            <div *ngIf="f.dob.errors.required">
+                Date of Birth is required
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Mobile</label>
+    </div>
+    <div>
+        <input type="text" class="form-control" formControlName="mobile">
+        <div *ngIf="submitted && f.mobile.errors" class="alert alert-danger" role="alert">
+            <div *ngIf="f.mobile.errors.required">
+                Mobile number is required
+            </div>
+            <div *ngIf="f.mobile.errors.pattern">
+                Invalid mobile Number
+            </div>
+        </div>
+    </div>
+</form>
+<button class="btn btn-success" [disabled]=registerForm.invalid (click)="save()">Save</button>
+<button class="btn btn-success" (click)=reset()>reset</button>

@@ -7,6 +7,13 @@
         <th scope="col">Quantity</th>
       </tr>
     </thead>
-  
-    
+    <tbody style="text-align: center" *ngFor="let product of cart">
+      <tr id="{{product.id}]">
+        <th scope="row">{{product.name}}</th>
+        <td>{{product.price}}</td>
+        <td><img src="{{product.path}}" width="200" height="150"></td>
+        <td>{{product.quantity}}</td>
+      </tr>
+    </tbody> 
   </table>
+<div id="total" style="text-align: center;color:blue;font-size: x-large;"></div>

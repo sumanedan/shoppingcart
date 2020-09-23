@@ -1,7 +1,9 @@
 import { getLocaleFirstDayOfWeek } from '@angular/common';
+import { toTypeScript } from '@angular/compiler';
+import { createTokenForExternalReference } from '@angular/compiler/src/identifiers';
 import { Component, OnInit } from '@angular/core';
-import { ProdlistService } from 'src/app/prodlist.service';
-import { HomeComponent } from '../../home/home.component'
+import { CartlistService } from 'src/app/cartlist.service';
+
 
 @Component({
   selector: 'app-cart',
@@ -9,14 +11,23 @@ import { HomeComponent } from '../../home/home.component'
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  constructor() { }
+cart:any
+total=0
+  constructor(private obj:CartlistService) { }
   
   ngOnInit(): void {   
-  
-    let h=new HomeComponent(null)
-    console.log(h.cartlist)
+  console.log(this.obj.cartlist)
+  this.cart=this.obj.cartlist
+  this.show();
+}
+show(){
+let s=document.getElementById("total")
+this.cart.forEach(obj=>{
+  this.total+=obj.price*obj.quantity
+})
+s.innerText="TOTAL:"+this.total
+}
 }
 
-}
 
 
