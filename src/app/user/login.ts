@@ -1,4 +1,5 @@
 export class login{
+    did
     email
     password
     constructor(email,password){

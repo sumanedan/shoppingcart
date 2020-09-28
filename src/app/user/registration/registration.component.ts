@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms'
+import {Register} from 'src/app/register'
+import {RegistrationService} from 'src/app/registration.service'
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -7,9 +9,18 @@ import { FormBuilder, Validators } from '@angular/forms'
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private service:RegistrationService) { }
   submitted = 'false'
+  registerlist:Register[]
   ngOnInit(): void {
+    this.service.readRegister().subscribe(data=>{
+      this.registerlist=data.map((doc)=>{
+        return{
+          did:doc.payload.doc.id,
+          ...doc.payload.doc.data() as {}
+        } as Register
+      })
+    })
   }
   registerForm = this.fb.group({
     name: ["", [Validators.required]],
@@ -28,6 +39,7 @@ export class RegistrationComponent implements OnInit {
   }
   save(){
     console.log(this.registerForm.value)
+    this.service.saveRegister(this.registerForm.value);
   }
   reset() {
     this.submitted = 'false'

@@ -15,9 +15,10 @@ export class HomeComponent implements OnInit {
   productlist: any;
   s: any;
   public cart: string[] = []
-
+  clicked = false;
   constructor(private service: ProdlistService, private obj: CartlistService) { }
   tocart(p) {
+
     this.cart.push(p)
     this.cartj()
   }
@@ -28,10 +29,15 @@ export class HomeComponent implements OnInit {
   }
   cartj() {
     console.log("Entries to my Cart...")
-    this.obj.cartlist = this.cart
-    console.log(this.obj.cartlist)
+    this.obj.cartlist = this.cart;
+    console.log(this.obj.cartlist);
+   
   }
   incQ(p) {
     p.quantity += 1
   }
+  decQ(p) {
+    p.quantity -= 1
+  }
+
 }

@@ -10,12 +10,15 @@
   </thead>
 
   <tbody style="text-align: center" *ngFor="let product of productlist">
-    <tr id="{{product.id}]">
+    <tr>
       <th scope="row">{{product.name}}</th>
       <td>{{product.price}}</td>
       <td><img src="{{product.path}}" width="200" height="150"></td>
-      <td>{{product.quantity}}<button style="color:firebrick" (click)="incQ(product)">+</button></td>
-      <td><button style="color:firebrick" (click)="tocart(product)">Add To Cart</button></td>
+      <td>{{product.quantity}}
+        <button style="color:firebrick" (click)="incQ(product)">+</button>
+        <button style="color:firebrick" (click)="decQ(product)">-</button>
+      </td>
+      <td><button style="color:firebrick" [disabled]="clicked" (click)="tocart(product);clicked=true;" >Add To Cart</button></td>
     </tr>
   </tbody>
 </table> 

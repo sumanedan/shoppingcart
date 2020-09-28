@@ -7,7 +7,9 @@ import { HomeComponent } from './home/home.component';
 import {MycartModule} from './mycart/mycart.module'
 import {HttpClientModule} from '@angular/common/http'
 import {UserModule} from './user/user.module'
-
+import {AngularFireModule} from '@angular/fire'
+import {AngularFireDatabaseModule} from '@angular/fire/database'
+import {environment} from '../environments/environment'
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import {UserModule} from './user/user.module'
     MycartModule,
     HttpClientModule,
     UserModule,
-    
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   exports:[HomeComponent],
   providers: [],
