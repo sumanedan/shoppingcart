@@ -1,3 +1,8 @@
+<div class="row">
+  <button class="btn btn-success col-sm-4" style="margin-left:50px" (click)=logout()>logout</button>
+<button class="btn btn-success col-sm-4" style="margin-left:400px" (click)="mycart()">MY CART</button>
+</div>
+
 <h4 style="text-align: center;">AVAILABLE PRODUCTS</h4>
 <table class="table table-dark" style="margin-bottom: 200px;position:absolute" id="mytab">
   <thead style="text-align: center;">
@@ -18,7 +23,7 @@
         <button style="color:firebrick" (click)="incQ(product)">+</button>
         <button style="color:firebrick" (click)="decQ(product)">-</button>
       </td>
-      <td><button style="color:firebrick" [disabled]="clicked" (click)="tocart(product);clicked=true;" >Add To Cart</button></td>
+      <td><button style="color:firebrick" (click)="tocart(product)" >Add To Cart</button></td>
     </tr>
   </tbody>
 </table> 

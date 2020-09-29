@@ -14,4 +14,10 @@ register:Register
   readRegister() {
     return this.obj.collection("registerdata").snapshotChanges()
   }
+  updateRegister(register) {
+    this.obj.doc("registerdata/" + register.did).update({ ...register })
+  }
+  deleteRegister(register) {
+    this.obj.doc("registerdata/" + register.did).delete()
+  }
 }

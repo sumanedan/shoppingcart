@@ -16,7 +16,8 @@ login:login
   readLogin() {
     return this.obj.collection("logindata").snapshotChanges()
   }
-  validateUser(login:login) {
-    
-    
-}}
+  updatelogin(login:login){
+      this.obj.doc("logindata/"+this.login.did).update({ ...login })
+    }
+  
+ }

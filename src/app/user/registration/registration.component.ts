@@ -39,13 +39,21 @@ export class RegistrationComponent implements OnInit {
   }
   save(){
     console.log(this.registerForm.value)
-    this.service.saveRegister(this.registerForm.value);
-  }
+    if(this.registerForm.value.did==null){
+    this.service.saveRegister(this.registerForm.value)
+  }else{
+  this.service.updateRegister(this.registerForm.value)
+}}
   reset() {
     this.submitted = 'false'
     this.registerForm.reset()
   }
+ 
+    delete(register){
+    this.service.deleteRegister(register)
+    }
   get f() {
     return this.registerForm.controls
   }
+  
 }

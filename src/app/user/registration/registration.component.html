@@ -66,3 +66,29 @@
 </form>
 <button class="btn btn-success" [disabled]=registerForm.invalid (click)="save()">Save</button>
 <button class="btn btn-success" (click)=reset()>reset</button>
+<table class="table">
+    <thead>
+        <th>did</th>
+        <th>name</th>
+        <th>email</th>
+        <th>password</th>
+        <th>dob</th>
+        <th>mobile</th>
+
+        
+
+<th>delete</th>
+    </thead>
+    <tr *ngFor="let reg of registerlist">
+        <td>{{reg.did}}</td>
+        <td>{{reg.name}}</td>
+        <td>{{reg.email}}</td>
+        <td>{{reg.password}}</td>
+        <td>{{reg.dob}}</td>
+        <td>{{reg.mobile}}</td>
+       
+
+<td><button (click)=delete(reg)>Delete</button></td>
+
+    </tr>
+</table>

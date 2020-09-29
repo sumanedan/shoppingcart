@@ -5,11 +5,12 @@ import { CartComponent } from './mycart/cart/cart.component';
 import { MycartModule } from './mycart/mycart.module';
 import { LoginComponent } from './user/login/login.component';
 import { RegistrationComponent } from './user/registration/registration.component';
-
+import {AuthGuardService} from '../app/auth-guard.service'
 const routes: Routes = [
    {
     path:"home",
-   component:HomeComponent
+   component:HomeComponent,
+   canActivate:[AuthGuardService]
    },
    {
     path:"login",

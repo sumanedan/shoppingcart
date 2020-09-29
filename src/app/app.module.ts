@@ -10,6 +10,7 @@ import {UserModule} from './user/user.module'
 import {AngularFireModule} from '@angular/fire'
 import {AngularFireDatabaseModule} from '@angular/fire/database'
 import {environment} from '../environments/environment'
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import {environment} from '../environments/environment'
     AngularFireDatabaseModule
   ],
   exports:[HomeComponent],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
